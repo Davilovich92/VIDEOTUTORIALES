@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--La explicación de los atributos vienen dadas en los comentarios-->
+</head>
+<body>
+    <h1>Tipos de inputs</h1>
+    <!--Los datos de un formulario deben estar incluidos en un form desde el
+    inicio hasta el final, incluidos los botones de envío-->
+    <form action="procesa.php">
+    <!--El formulario queda mejor si está recogido en un cuadrado con fieldset,
+    se le puede poner un nombre con legend-->
+    <fieldset>
+        <legend>Datos personales</legend>
+        <!--Con el input text se puede meter texto, en este caso se le ha puesto
+        una longitud máxima de e6 caractéres. El id y el for deben ser igual
+        y así si pinchas encima del texto del label el cursor irá al cuadro 
+        de introducción de datos. Se le puede poner un atributo value que será
+        un valor predeterminado que tenga esa casilla cuando se inicie el formulario
+        muy util para valores muy repetidos. En este caso es un ejemplo solo.-->
+        <p>
+            <label for="nom">Nombre</label>
+            <input type="text" maxlength="6" name="nombre" id="nom" value="TU NOMBRE">
+        </p>
+        <!--Igual que el anterior pero al ponerle tipo passworld los caracteres
+        estarán sustituidos por puntos. Con el atributo autofocus podemos hacer
+        que el cursor se centre en un punto en concreto al cargar el formulario.-->
+        <p>
+            <label for="pass">Contraseña</label>
+            <input type="password" minlength="4" maxlength="6" name="contraseña"
+            id="pass" autofocus>
+        </p>
+        <!--Importante en este caso que le name sea el mismo, para qeu así
+        solo te deje seleccionar una sola opción-->
+        <p>
+            <label for="hombre">Hombre:</label>
+            <input type="radio" value="H" name="genero" id="hombre" checked>
+            <label for="mujer">Mujer:</label>
+            <input type="radio" value="M" name="genero" id="mujer">
+        </p>
+        <!--Casilla tipo checkbox-->
+        <p>
+            <label for="fumador">Fumador:</label>
+            <input type="checkbox" name="fuma" id="fumador">
+        </p>
+    </fieldset>
+    <!--Desplegable para elegir, si a uno de ellos le pones selected será la
+    opción elegida de forma predeterminada-->
+    <p>
+        <label for="prov">Provincia:</label>
+        <select name="prov" id="prov">
+            <option value="al">Almería</option>
+            <option value="ca">Cádiz</option>
+            <option value="co">Córdoba</option>
+            <option value="gr">Granada</option>
+            <option value="hu">Huelva</option>
+            <option value="ja" selected>Jaén</option>
+            <option value="ma">Málaga</option>
+            <option value="se">Sevilla</option>
+        </select>
+    </p>
+    <!--Cuadro de texto para que el usuario escriba algo. Se puede modificar el 
+    tamaño con cols y rows. Le podemos poner un placeholder para que aparezca
+    un texto predeterminado que se borrará cuando el usuario escriba-->
+    <p>
+        <label for="obs">Observaciones:</label>
+        <textarea name="obs" placeholder="Escribe aqui lo que quieras..."
+        cols="10" rows="6" id="obs"></textarea>
+    </p>
+    <!--El input color se usa para que el usuario escoja un color-->
+    <p>
+        <label for="color">Color:</label>
+        <input type="color" name="color" id="color">
+    </p>
+    <!--Para incluir fechas-->
+    <p>
+        <label for="fech-nac">Fecha de nacimiento:</label>
+        <input type="date" name="fechanacimiento" id="fecha-nac">
+    </p>
+    <!--Para incluir un número como la edad, muy útil añadir mínimo y
+    máximo. Con el atributo required no se puede enviar el formulario si no se 
+    ha rellenado ese campo-->
+    <p>
+        <label for="edad">Edad:</label>
+        <input type="number" name="edad" id="edad" min="0" max="100" required>
+    </p>
+    <!--El input email valida si en el texto introducido hay un @. Podemos hacer
+    que un campo sea de solo lectura con el atributo readonly (en este caso tiene
+    poco sentido porque es para meter un email, pero es un ejemplo)-->
+    <p>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" readonly>
+    </p>
+    <!--Para adjuntar un archivo. Podemos poner el atributo disabled para
+    deshabilitar una opción.-->
+    <p>
+        <label for="foto">Adjunte una imagen de perfil:</label>
+        <p>
+            <input type="file" name="foto" id="foto" disabled>
+        </p>
+    </p>
+    <!--Botones de envío y reset-->
+    <p>
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Reiniciar">
+    </p>
+    </form>
+    <p>
+        <button type="button" onclick="location.href='../index.html'">Volver atrás</button>
+    </p>
+</body>
+</html>
